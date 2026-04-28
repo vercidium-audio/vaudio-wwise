@@ -29,7 +29,9 @@ public class WwiseSound
     public void UpdateFilter(vaudio.AudioFilter filter)
     {
         // gainHF 1.0 = fully open, 0.0 = fully closed; Wwise LPF is 0 (open) to 100 (closed)
-        float lpfValue = (1f - filter.gainHF) * 100f;
+        float lpfValue = (1f - filter.gainLF) * 100f;
+
+        // This call doesn't work unless the Wwise Authoring profiler is attached
         AkSoundEngine.LogResult($"SetRTPCValue(Speech_LPF={lpfValue:F1}, obj={objectId})", AkSoundEngine.SetRTPCValue("Speech_LPF", lpfValue, objectId));
     }
 

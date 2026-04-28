@@ -103,7 +103,7 @@ public static class AkSoundEngine
         IntPtr auxSendValues, uint numSendValues);
 
     // AK_INVALID_GAME_OBJECT — tells Wwise the send is not spatialized relative to a specific listener
-    private const ulong AK_INVALID_GAME_OBJECT = ulong.MaxValue;
+    public const ulong AK_INVALID_GAME_OBJECT = ulong.MaxValue;
 
     public static int SetGameObjectAuxSendValues(ulong gameObjectId, uint auxBusID, float controlValue)
     {
