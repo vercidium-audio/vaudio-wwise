@@ -1,0 +1,47 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Windows",
+  "BasePlatform": "Windows",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "172",
+  "SoundBanks": [
+   {
+    "Id": "4245458931",
+    "Type": "User",
+    "GUID": "{A4E97E02-5932-4224-B646-BE34A4BAABDB}",
+    "Language": "SFX",
+    "Hash": "{08F189DC-7A3D-B52C-9C8A-B453522AD7BE}",
+    "ObjectPath": "\\SoundBanks\\Default Work Unit\\speech",
+    "ShortName": "speech",
+    "Path": "speech.bnk",
+    "Media": [
+     {
+      "Id": "865777063",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "speech.wav",
+      "CachePath": "EE/{EE0B14AF-8808-CBAC-4DED-432DE3598B00}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "4122783924",
+      "Name": "Play_Speech",
+      "ObjectPath": "\\Events\\Default Work Unit\\Play_Speech",
+      "GUID": "{85123B18-3C75-47BA-A223-F2A4A9FBA634}",
+      "DurationType": "OneShot",
+      "DurationMin": "21.823107",
+      "DurationMax": "21.823107",
+      "MediaRefs": [
+       {
+        "Id": "865777063"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{5A15E532-F303-4FBF-68CE-ABD95613E418}"
+ }
+}

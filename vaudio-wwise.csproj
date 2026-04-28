@@ -5,14 +5,12 @@
 		<RootNamespace>vaudio_wwise</RootNamespace>
 	</PropertyGroup>
 
-	<!-- Step 1 - copy the wwise DLL to the lib folder -->
 	<ItemGroup>
-		<None Include="lib\wwise.dll">
+		<None Include="C:\Users\verc\Documents\wwise_unity\windows\Wwise\API\Runtime\Plugins\Windows\x86_64\Debug\AkUnitySoundEngine.dll">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-			<Link>wwise.dll</Link>
 		</None>
 	</ItemGroup>
-
+	
 	<PropertyGroup>
 		<!-- Replace this with the path to your vaudio SDK -->
 		<VAudioDir>lib\vaudio</VAudioDir>
