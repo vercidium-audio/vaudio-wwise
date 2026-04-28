@@ -117,18 +117,23 @@ Generated from Wwise project: C:\Users\verc\Documents\WwiseProjects\convert_ogg\
 ## RoomVerb RTPCs (wired in Wwise authoring to ReverbBus effect slots)
 
 These are bus-level — use global SetRTPCValue (no game object):
-  Reverb_PreDelay      (ms, 0–200)         <- EAX ReflectionsDelay * 1000
-  Reverb_DecayTime     (seconds, 0.1–20)   <- EAX DecayTime
-  Reverb_HFDamping     (%, 0–100)          <- (1 - EAX DecayHFRatio) * 100
-  Reverb_Diffusion     (%, 0–100)          <- EAX Diffusion * 100
-  Reverb_StereoWidth   (%, 0–100)          <- fixed 100
-  Reverb_FrontLevel    (dB)                <- fixed 0
-  Reverb_RearLevel     (dB)                <- fixed 0
-  Reverb_CenterLevel   (dB)                <- fixed 0
-  Reverb_LFELevel      (dB)                <- fixed 0
-  Reverb_DryLevel      (dB)                <- LinearToDb(EAX Gain)
-  Reverb_ERLevel       (dB)                <- LinearToDb(EAX ReflectionsGain)
-  Reverb_ReverbLevel   (dB)                <- LinearToDb(EAX LateReverbGain)
+All RTPCs receive a 0–100 value; Wwise maps each to its native range internally:
+  RTPC 0 = native min, RTPC 100 = native max.
+
+  Reverb_PreDelay      (native 0–1000ms)   <- ReflectionsDelay(0–0.3s)*1000/10
+  Reverb_DecayTime     (native 0.2–10s)    <- (DecayTime - 0.2) / 9.8 * 100
+  Reverb_HFDamping     (native 0.5–10)     <- (DecayHFRatio - 0.5) / 9.5 * 100
+  Reverb_Diffusion     (native -100–100%)  <- Diffusion(0–1) * 100
+  Reverb_StereoWidth   (native -180–180°)  <- fixed 100
+  Reverb_FrontLevel    (native -96.3–96.3dB) <- DbToRtpc(0)
+  Reverb_RearLevel     (native -96.3–96.3dB) <- DbToRtpc(0)
+  Reverb_CenterLevel   (native -96.3–96.3dB) <- DbToRtpc(0)
+  Reverb_LFELevel      (native -96.3–96.3dB) <- DbToRtpc(0)
+  Reverb_DryLevel      (native -96.3–96.3dB) <- DbToRtpc(LinearToDb(Gain))
+  Reverb_ERLevel       (native -96.3–96.3dB) <- DbToRtpc(LinearToDb(ReflectionsGain))
+  Reverb_ReverbLevel   (native -96.3–96.3dB) <- DbToRtpc(LinearToDb(LateReverbGain))
+
+  DbToRtpc(db) = (db + 96.3) / 192.6 * 100
 
 Note: there is a stray RTPC "Reverb_Diffusionew_Game_Parameter" in the project — ignore it, it's a typo artifact.
 

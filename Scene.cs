@@ -187,7 +187,7 @@ internal class Scene
     {
         // Move the prism onto the speech Emitter to muffle it
         {
-            var lerp = (MathF.Sin(watch.ElapsedMilliseconds / 500.0f + 1.25f) + 1) / 2;
+            var lerp = (MathF.Sin(watch.ElapsedMilliseconds / 1500.0f + 1.25f) + 1) / 2;
             clothPrism.transform = vaudio.Matrix4F.CreateTranslation(Lerp(50.0f, 55.0f, lerp), 50, 50);
         }
 

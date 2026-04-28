@@ -39,22 +39,25 @@ public class WwiseSystem
     public void UpdateReverb(vaudio.EAXReverbResults eax)
     {
         // Bus-level RTPCs must use the global overload (no game object) — they drive RoomVerb on ReverbBus
-        AkSoundEngine.SetRTPCValue(RtpcPreDelay,    Math.Clamp(eax.ReflectionsDelay * 1000f, 0f, 200f));
-        AkSoundEngine.SetRTPCValue(RtpcDecayTime,   Math.Clamp(eax.DecayTime, 0.1f, 20f));
-        AkSoundEngine.SetRTPCValue(RtpcHFDamping,   Math.Clamp((1f - eax.DecayHFRatio) * 100f, 0f, 100f));
+        // All values passed as 0–100; Wwise maps each to its native range internally
+        AkSoundEngine.SetRTPCValue(RtpcPreDelay,    Math.Clamp(eax.ReflectionsDelay * 1000f / 10f, 0f, 100f));
+        AkSoundEngine.SetRTPCValue(RtpcDecayTime,   Math.Clamp((eax.DecayTime - 0.2f) / 9.8f * 100f, 0f, 100f));
+        AkSoundEngine.SetRTPCValue(RtpcHFDamping,   Math.Clamp((eax.DecayHFRatio - 0.5f) / 9.5f * 100f, 0f, 100f));
         AkSoundEngine.SetRTPCValue(RtpcDiffusion,   Math.Clamp(eax.Diffusion * 100f, 0f, 100f));
         AkSoundEngine.SetRTPCValue(RtpcStereoWidth, 100f);
-        AkSoundEngine.SetRTPCValue(RtpcReverbLevel, LinearToDb(eax.LateReverbGain));
-        AkSoundEngine.SetRTPCValue(RtpcERLevel,     LinearToDb(eax.ReflectionsGain));
-        AkSoundEngine.SetRTPCValue(RtpcDryLevel,    LinearToDb(eax.Gain));
-        AkSoundEngine.SetRTPCValue(RtpcFrontLevel,  0f);
-        AkSoundEngine.SetRTPCValue(RtpcRearLevel,   0f);
-        AkSoundEngine.SetRTPCValue(RtpcCenterLevel, 0f);
-        AkSoundEngine.SetRTPCValue(RtpcLFELevel,    0f);
+        AkSoundEngine.SetRTPCValue(RtpcReverbLevel, DbToRtpc(LinearToDb(eax.LateReverbGain)));
+        AkSoundEngine.SetRTPCValue(RtpcERLevel,     DbToRtpc(LinearToDb(eax.ReflectionsGain)));
+        AkSoundEngine.SetRTPCValue(RtpcDryLevel,    DbToRtpc(LinearToDb(eax.Gain)));
+        AkSoundEngine.SetRTPCValue(RtpcFrontLevel,  DbToRtpc(0f));
+        AkSoundEngine.SetRTPCValue(RtpcRearLevel,   DbToRtpc(0f));
+        AkSoundEngine.SetRTPCValue(RtpcCenterLevel, DbToRtpc(0f));
+        AkSoundEngine.SetRTPCValue(RtpcLFELevel,    DbToRtpc(0f));
     }
 
     static float LinearToDb(float linear)
-        => linear > 0f ? Math.Clamp(20f * MathF.Log10(linear), -96f, 0f) : -96f;
+        => linear > 0f ? Math.Clamp(20f * MathF.Log10(linear), -96.3f, 96.3f) : -96.3f;
+
+    static float DbToRtpc(float db) => (db + 96.3f) / 192.6f * 100f;
 
     public void LoadSoundData(string bankDir, string bankName)
     {
