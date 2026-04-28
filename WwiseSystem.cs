@@ -56,11 +56,8 @@ public class WwiseSystem
     static float LinearToDb(float linear)
         => linear > 0f ? Math.Clamp(20f * MathF.Log10(linear), -96f, 0f) : -96f;
 
-    public void LoadSoundData(string filePath)
+    public void LoadSoundData(string bankDir, string bankName)
     {
-        string bankDir = Path.GetFullPath(Path.GetDirectoryName(filePath)!);
-        string bankName = Path.GetFileNameWithoutExtension(filePath);
-
         AkSoundEngine.LogResult($"SetBasePath(\"{bankDir}\")", AkSoundEngine.SetBasePath(bankDir));
         AkSoundEngine.LogResult("LoadBankByName(\"Init\")", AkSoundEngine.LoadBankByName("Init", out _));
 

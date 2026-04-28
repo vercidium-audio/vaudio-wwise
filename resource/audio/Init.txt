@@ -1,0 +1,27 @@
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	166361629	Reverb_FrontLevel			\Default Work Unit\Reverb_FrontLevel	
+	978651099	Reverb_LFELevel			\Default Work Unit\Reverb_LFELevel	
+	1792104228	Reverb_RearLevel			\Default Work Unit\Reverb_RearLevel	
+	2002333627	Reverb_DryLevel			\Default Work Unit\Reverb_DryLevel	
+	2038311061	Reverb_DecayTime			\Default Work Unit\Reverb_DecayTime	
+	2168860859	Reverb_CenterLevel			\Default Work Unit\Reverb_CenterLevel	
+	2945642605	Reverb_ERLevel			\Default Work Unit\Reverb_ERLevel	
+	3108640649	Reverb_Diffusion			\Default Work Unit\Reverb_Diffusion	
+	3197192158	Reverb_ReverbLevel			\Default Work Unit\Reverb_ReverbLevel	
+	3613136772	Reverb_PreDelay			\Default Work Unit\Reverb_PreDelay	
+	3796098792	Reverb_StereoWidth			\Default Work Unit\Reverb_StereoWidth	
+	3802822340	Reverb_HFDamping			\Default Work Unit\Reverb_HFDamping	
+
+Audio Bus	ID	Name			Wwise Object Path	Notes
+	2246998526	Main Audio Bus			\Default Work Unit\Main Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	3744218805	ReverbBus			\Default Work Unit\Main Audio Bus\ReverbBus	
+
+Effect plug-ins	ID	Name	Type				Notes
+	178257321	RoomVerb (Custom)	Wwise RoomVerb			
+
+Audio Devices	ID	Name	Type				Notes
+	2317455096	No_Output	No Output			
+	3859886410	System	System			
+

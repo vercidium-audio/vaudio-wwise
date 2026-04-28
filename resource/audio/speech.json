@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A4E97E02-5932-4224-B646-BE34A4BAABDB}",
     "Language": "SFX",
-    "Hash": "{08F189DC-7A3D-B52C-9C8A-B453522AD7BE}",
+    "Hash": "{E07A3788-12E2-8D08-541A-09A1B67EB0EA}",
     "ObjectPath": "\\SoundBanks\\Default Work Unit\\speech",
     "ShortName": "speech",
     "Path": "speech.bnk",
@@ -21,7 +21,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "speech.wav",
-      "CachePath": "EE/{EE0B14AF-8808-CBAC-4DED-432DE3598B00}.wem"
+      "CachePath": "46/{461204D9-739E-DC3A-6A8A-698A04450C68}.wem"
      }
     ],
     "Events": [
@@ -30,18 +30,33 @@
       "Name": "Play_Speech",
       "ObjectPath": "\\Events\\Default Work Unit\\Play_Speech",
       "GUID": "{85123B18-3C75-47BA-A223-F2A4A9FBA634}",
-      "DurationType": "OneShot",
-      "DurationMin": "21.823107",
-      "DurationMax": "21.823107",
+      "MaxAttenuation": "100",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "865777063"
        }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "3744218805",
+        "Name": "ReverbBus",
+        "ObjectPath": "\\Busses\\Default Work Unit\\Main Audio Bus\\ReverbBus",
+        "GUID": "{58031D21-FA80-4DF7-8205-91755FA6A7D1}"
+       }
       ]
+     }
+    ],
+    "GameParameters": [
+     {
+      "Id": "1973080040",
+      "Name": "Speech_LPF",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\Speech_LPF",
+      "GUID": "{E61660B2-511D-4677-9835-73E29554A432}"
      }
     ]
    }
   ],
-  "FileHash": "{5A15E532-F303-4FBF-68CE-ABD95613E418}"
+  "FileHash": "{775A7B7D-BAD5-51C9-65D9-96EFCE976DA3}"
  }
 }

@@ -167,7 +167,7 @@ internal class Scene
     void InitialiseWwise()
     {
         wwise = new WwiseSystem();
-        wwise.LoadSoundData("resource/audio/speech.ogg");
+        wwise.LoadSoundData("resource/audio", "speech");
 
         // Face the listener towards the speech Emitter
         wwise.SetListenerPosition(listener.Position.GetPosition(), 0, MathF.PI / 2);
