@@ -8,16 +8,22 @@ This repository requires the Vercidium Audio SDK v1.1.1 and Wwise SDK to run:
 
 ## Wwise Setup
 
-Once Wwise is installed, add this to `vaudio-wwise.csproj`:
+Once Wwise is installed, you must download the C# bindings for Wwise, which are located in the Unity package.
 
-```xml
-<ItemGroup>
-    <!-- Replace this with the path to your Wwise SDK -->
-    <None Include="C:\Audiokinetic\Wwise2025.1.7.9143\SDK\x64_vc170\Release\bin\AkSoundEngine.dll">
-        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-</ItemGroup>
-```
+Run the Wwise Launcher program and then:
+- Select `Unity` on the left sidebar
+- Click `Download` in the top-right
+- Click `Offline integration files`
+
+![Wwise Launcher screen with the 'Download > Offline integration files' option selected](docs/offline_integration_files.png)
+
+Ensure `Microsoft > Windows` is selected on the right, then scroll down and click `Download`
+
+![Download screen for the Unity offline integration files, with the Microsoft > Windows checkbox selected](docs/wwise_unity_download.png)
+
+Then extract the `Unity.Windows.tar.xz` file (twice), then open the `Wwise/API/Runtime/Plugins/Windows/x86_64/Debug` folder and copy the `AkUnitySoundEngine.dll` file to the `vaudio-fmod/lib` folder.
+
+![Folder containing the AkUnitySoundEngine.dll file](docs/akunitysoundenginedll.png)
 
 ## Vercidium Audio Setup
 
@@ -36,18 +42,23 @@ Or edit `vaudio-wwise.csproj` to point to the folder where the Vercidium Audio S
 
 ## File Overview
 
-- `wwise/*.cs` contains the C# bindings for Wwise [TODO]
-- `WwiseSystem.cs` and `WwiseSound.cs` are helper files for working with Wwise [TODO]
+- `wwise/AkSoundEngine.cs` contains the C# bindings for Wwise
+- `WwiseSystem.cs` and `WwiseSound.cs` are helper files for working with Wwise 
 - `resource/audio/speech.ogg` is an example file included for playback
-- `Scene.cs` creates a Vercidium Audio context and initialises Wwise [TODO]
+- `Scene.cs` creates a Vercidium Audio context and initialises Wwise
 
-Scene.cs is where you can adjust ray counts, add primitives change materials and more. See the [Vercidium Audio docs](https://docs.vercidium.com/raytraced-audio/v110/Getting+Started) for more.
+Scene.cs is where you can adjust ray counts, add primitives, change materials and more. See the [Vercidium Audio docs](https://docs.vercidium.com/raytraced-audio/v110/Getting+Started) for more.
 
 ## Controls
 
 Open the project in Visual Studio 2022 or 2026, and press F5 to run the project.
 
-A debug window will appear, which renders the raytracing scene (primitives and rays), an echogram at the top, and raytracing stats in the bottom left.
+A debug window will appear that displays:
+- the raytracing scene (primitives and rays)
+- an echogram at the top
+- raytracing stats in the bottom left.
+
+Controls:
 
 - Use WASD and the mouse to move the camera
 - Press escape to release the mouse

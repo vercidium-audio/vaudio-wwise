@@ -6,8 +6,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<None Include="C:\Users\verc\Documents\wwise_unity\windows\Wwise\API\Runtime\Plugins\Windows\x86_64\Debug\AkUnitySoundEngine.dll">
+		<None Include="lib\AkUnitySoundEngine.dll">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+			<Link>AkUnitySoundEngine.dll</Link>
 		</None>
 	</ItemGroup>
 	
