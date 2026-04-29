@@ -8,9 +8,8 @@ This repository requires the Vercidium Audio SDK v1.1.1 and Wwise SDK to run:
 
 ## Wwise Setup
 
-Once Wwise is installed, you must download the C# bindings for Wwise, which are located in the Unity package.
-
-Run the Wwise Launcher program and then:
+Once Wwise is installed, you must download the C# bindings for Wwise, which are located in the Unity package:
+- Run the Wwise Launcher program
 - Select `Unity` on the left sidebar
 - Click `Download` in the top-right
 - Click `Offline integration files`
