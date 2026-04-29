@@ -44,7 +44,7 @@ Or edit `vaudio-wwise.csproj` to point to the folder where the Vercidium Audio S
 
 - `wwise/AkSoundEngine.cs` contains the C# bindings for Wwise
 - `WwiseSystem.cs` and `WwiseSound.cs` are helper files for working with Wwise 
-- `resource/audio/speech.ogg` is an example file included for playback
+- `resource/audio` contains soundbank and config files created by the Wwise Authoring program
 - `Scene.cs` creates a Vercidium Audio context and initialises Wwise
 
 Scene.cs is where you can adjust ray counts, add primitives, change materials and more. See the [Vercidium Audio docs](https://docs.vercidium.com/raytraced-audio/v110/Getting+Started) for more.
