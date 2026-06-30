@@ -36,7 +36,7 @@ public class WwiseSystem
         AkSoundEngine.LogResult("AddDefaultListener(Listener)", AkSoundEngine.AddDefaultListener(ListenerObjectId));
     }
 
-    public void UpdateReverb(vaudio.EAXReverbResults eax)
+    public void UpdateReverb(vaudio.EAXReverb eax)
     {
         // Bus-level RTPCs must use the global overload (no game object) — they drive RoomVerb on ReverbBus
         // All values passed as 0–100; Wwise maps each to its native range internally
@@ -68,7 +68,7 @@ public class WwiseSystem
         Console.WriteLine($"[Wwise] LoadBank \"{bankName}\" bankId={bankId}");
     }
 
-    public WwiseSound CreateSound(vaudio.Vector3F position)
+    public WwiseSound CreateSound(vaudio.Vector position)
     {
         ulong objectId = nextSoundObjectId++;
         Console.WriteLine($"[Wwise] CreateSound objectId={objectId}");
@@ -85,7 +85,7 @@ public class WwiseSystem
         return new WwiseSound(objectId);
     }
 
-    public void SetListenerPosition(vaudio.Vector3F position, float pitch, float yaw)
+    public void SetListenerPosition(vaudio.Vector position, float pitch, float yaw)
     {
         float cosPitch = MathF.Cos(pitch);
         float sinPitch = MathF.Sin(pitch);

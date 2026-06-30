@@ -18,7 +18,7 @@ public class WwiseSound
         AkSoundEngine.LogPostEvent("Play_Speech", objectId, playingId);
     }
 
-    public void UpdatePosition(vaudio.Vector3F pos)
+    public void UpdatePosition(vaudio.Vector pos)
     {
         AkSoundEngine.SetPosition(objectId,
             new AkSoundEngine.AkVector(pos.X, pos.Y, pos.Z),
@@ -26,13 +26,13 @@ public class WwiseSound
             new AkSoundEngine.AkVector(0f, 1f, 0f));
     }
 
-    public void UpdateFilter(vaudio.AudioFilter filter)
+    public void UpdateFilter(vaudio.LowPassFilter filter)
     {
         // gainHF 1.0 = fully open, 0.0 = fully closed; Wwise LPF is 0 (open) to 100 (closed)
-        float lpfValue = (1f - filter.gainLF) * 100f;
+        float lpfValue = (1f - filter.GainLF) * 100f;
 
-        // This call doesn't work unless the Wwise Authoring profiler is attached
-        AkSoundEngine.LogResult($"SetRTPCValue(Speech_LPF={lpfValue:F1}, obj={objectId})", AkSoundEngine.SetRTPCValue("Speech_LPF", lpfValue, objectId));
+        // Sanity check
+        AkSoundEngine.SetRTPCValue("Speech_LPF", lpfValue, objectId);
     }
 
     public void Stop()

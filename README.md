@@ -1,10 +1,10 @@
 ## Vercidium Audio + Wwise Example
 
-This repository requires the Vercidium Audio SDK v1.1.1 and Wwise SDK to run:
-- Download the Vercidium Audio SDK from [vercidium.com/audio](https://vercidium.com/audio)
+This repository requires the Vercidium Audio SDK v1.2.0 and Wwise SDK to run:
+- Download the Vercidium Audio SDK from [vercidium.com](https://vercidium.com)
 - Download the Wwise SDK from [audiokinetic.com/en/download](https://www.audiokinetic.com/en/download)
 
-> Please note that neither SDK is free for commercial use. See [audiokinetic.com/pricing](https://www.audiokinetic.com/pricing)
+> Please note that neither SDK is free for commercial use. See [audiokinetic.com/pricing](https://www.audiokinetic.com/pricing) and [vercidium.com/eula](https://vercidium.com/eula)
 
 ## Wwise Setup
 
@@ -26,17 +26,15 @@ Then extract the `Unity.Windows.tar.xz` file (twice), then open the `Wwise/API/R
 
 ## Vercidium Audio Setup
 
-You can either copy the entire vaudio folder to the `lib` folder:
-
-![screenshot of the vaudio-wwise/lib folder. It contains a folder called vaudio](docs/lib_folder.png)
-
-Or edit `vaudio-wwise.csproj` to point to the folder where the Vercidium Audio SDK lives:
+Edit `vaudio-wwise.csproj` to point to the folder where the Vercidium Audio SDK lives:
 
 ```xml
-<PropertyGroup>
-    <!-- Replace this with the path to your vaudio SDK -->
-    <VAudioDir>lib\vaudio</VAudioDir>
-</PropertyGroup>
+<ItemGroup>
+	<Reference Include="vaudio">
+		<!-- Step 2 - replace this with the path to your Vercidium Audio .NET SDK -->
+		<HintPath>path\to\your\dotnet\vaudio.dll</HintPath>
+	</Reference>
+</ItemGroup>
 ```
 
 ## File Overview
@@ -46,7 +44,7 @@ Or edit `vaudio-wwise.csproj` to point to the folder where the Vercidium Audio S
 - `resource/audio` contains soundbank and config files created by the Wwise Authoring program
 - `Scene.cs` creates a Vercidium Audio context and initialises Wwise
 
-Scene.cs is where you can adjust ray counts, add primitives, change materials and more. See the [Vercidium Audio docs](https://docs.vercidium.com/raytraced-audio/v110/Getting+Started) for more.
+Scene.cs is where you can adjust ray counts, add primitives, change materials and more. See the [Vercidium Audio docs](https://vercidium.com/docs) for more details.
 
 ## Controls
 
