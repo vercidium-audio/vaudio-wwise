@@ -1,6 +1,6 @@
 ## Vercidium Audio + Wwise Example
 
-This repository requires the Vercidium Audio SDK v1.2.0 and Wwise SDK to run:
+This repository requires the Vercidium Audio SDK v1.2.1 and Wwise SDK to run:
 - Download the Vercidium Audio SDK from [vercidium.com](https://vercidium.com)
 - Download the Wwise SDK from [audiokinetic.com/en/download](https://www.audiokinetic.com/en/download)
 
@@ -32,7 +32,7 @@ Edit `vaudio-wwise.csproj` to point to the folder where the Vercidium Audio SDK 
 <ItemGroup>
 	<Reference Include="vaudio">
 		<!-- Step 2 - replace this with the path to your Vercidium Audio .NET SDK -->
-		<HintPath>path\to\your\dotnet\vaudio.dll</HintPath>
+		<HintPath>path\to\vercidium_audio_v1.2.1\dotnet\dev\vaudio.dll</HintPath>
 	</Reference>
 </ItemGroup>
 ```
