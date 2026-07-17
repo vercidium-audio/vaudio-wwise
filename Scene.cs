@@ -151,8 +151,12 @@ internal class Scene
 
         // Reduce the transmission of the cloth material, so we can hear the sound when the prism moves on top of the speech Emitter 
         var cloth = world.GetMaterial(vaudio.MaterialType.Cloth);
-        cloth.TransmissionLF = 5.0f;
-        cloth.TransmissionHF = 10.0f;
+
+        // Lose all low-frequency energy after travelling 6 meters through a cloth primitive
+        cloth.TransmissionLF = 6.0f;
+
+        // Lose all high-frequency energy after travelling 3 meters through a cloth primitive
+        cloth.TransmissionHF = 3.0f;
     }
 
     void OnReverbUpdated()
